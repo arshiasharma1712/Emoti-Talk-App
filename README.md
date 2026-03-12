@@ -68,4 +68,4 @@ Working on this project helped me explore:
 
 ## Note
 
-This project was created as a learning project exploring how web technologies can be used to improve accessibility and communication tools for children with special needs.
+This project was created as a learning project exploring how web technologies can be used to improve accessibility and communication tools for children with special needs. The original version of this project was hosted on Glitch. Some image assets were lost when the project expired, but the core application logic and interface are preserved here.
