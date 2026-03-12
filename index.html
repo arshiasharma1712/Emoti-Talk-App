@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoticon App</title>
+  <style>
+    body {
+      font-family: "Amatic SC", cursive;
+      margin: 0;
+      padding: 20px;
+      background-color: #e0f7fa;
+    }
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 48px;
+    }
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 36px;
+    }
+    .image-container {
+      display: inline-block;
+      width: 200px; /* Set a fixed width for all image containers */
+      height: 200px; /* Set a fixed height for all image containers */
+      margin: 10px;
+      text-align: center;
+      position: relative;
+    }
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .message {
+      font-size: 25px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      display: none;
+      position: absolute;
+      top: -26px;
+      left: 0;
+      right: 0;
+    }
+  </style>
+  <!-- Google Fonts link to add custom fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Emoticon App</h1>
+  <h2>Emotions</h2>
+  <div class="image-container">
+    <div class="message" id="message1">I am happy</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/smiley.jpg?v=1707274080096" alt="Happy Emoticon" onclick="showMessage('I am happy', 'message1')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message2">I am sad</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/sad%20face.png?v=1707321528711" alt="Sad Emoticon" onclick="showMessage('I am sad', 'message2')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message3">I am sick</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/sick.jpeg?v=1707321546666" alt="Sick Emoticon" onclick="showMessage('I am sick', 'message3')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message4">I am sleepy</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/sleepy.jpg?v=1707367857905" alt="Sleepy Emoticon" onclick="showMessage('I am sleepy', 'message4')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message5">I am angry</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/angry.jpg?v=1707368500531" alt="Angry Emoticon" onclick="showMessage('I am angry', 'message5')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message6">I am scared</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/scared.webp?v=1707439250461" alt="Scared Emoticon" onclick="showMessage('I am scared', 'message6')">
+  </div>
+
+  <!-- Second Set of Images -->
+  <h2>Actions</h2>
+  <div class="image-container">
+    <div class="message" id="message7">I want to eat</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/eating.webp?v=1707446732112" alt="Eating Emoticon" onclick="showMessage('I want to eat', 'message7')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message8">I want to play</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/toys%20play.jpg?v=1707447933514" alt="Playing Emoticon" onclick="showMessage('I want to play', 'message8')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message9">Drinking water</div>
+    <img class="image" src="https://cdn.glitch.global/4b2d7f4c-86a8-4e82-b701-1fff01ba188a/little-boy-drinking-water-from-glass-clipart-29332.jpg?v=1707583075859" alt="Drinking Water Emoticon" onclick="showMessage('Drinking water', 'message9')">
+  </div>
+  <div class="image-container">
+    <div class="message" id="message10">Message for Image 10</div>
+    <img class="image" src="image10.jpg" alt="Image 10" onclick="showMessage('Message for Image 10', 'message10')">
+  </div>
+   <div class="image-container">
+    <div class="message" id="message11">Message for Image 11</div>
+    <img class="image" src="image11.jpg" alt="Image 11" onclick="showMessage('Message for Image 11', 'message11')">
+  </div>
+   <div class="image-container">
+    <div class="message" id="message12">Message for Image 12</div>
+    <img class="image" src="image12.jpg" alt="Image 12" onclick="showMessage('Message for Image 12', 'message12')">
+  </div>
+
+  <!-- Message Display -->
+  <div id="message"></div>
+
+  <script>
+    function showMessage(message, messageId) {
+      var messageElement = document.getElementById(messageId);
+      messageElement.textContent = message;
+      messageElement.style.display = 'block';
+      speakMessage(message);
+      setTimeout(function() {
+        messageElement.style.display = 'none';
+      }, 5000); // Hide message after 5 seconds
+    }
+
+    function speakMessage(message) {
+      var msg = new SpeechSynthesisUtterance(message);
+      window.speechSynthesis.speak(msg);
+    }
+  </script>
+</body>
+</html>
